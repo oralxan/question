@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ question.question_text }}</title>
+</head>
+<body>
+    <h1>{{ question.question_text }}</h1>
+    <ul>
+        <li>{{ question.option1 }}</li>
+        <li>{{ question.option2 }}</li>
+        <li>{{ question.option3 }}</li>
+        <li>{{ question.option4 }}</li>
+    </ul>
+    <p>Answer: {{ question.correct_answer }}</p>
+    <a href="{% url 'question_list' %}">Back to Questions</a>
+</body>
+</html>

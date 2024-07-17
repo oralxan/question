@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #dcdcf4;
+            font-family: Arial, sans-serif;
+        }
+
+        .quiz-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #dcdcf4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-card {
+            background-color: #dcdcf4;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            background-color: #412276;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .question-icon {
+            background-color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            top: -20px;
+            left: calc(50% - 20px);
+            font-size: 24px;
+            color: #181481;
+        }
+
+        .question-text {
+            padding-top: 20px;
+            color: white;
+        }
+
+        .answers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .answer {
+            background-color: #999193;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .answer input {
+            margin-right: 10px;
+        }
+
+        .submit-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .submit-button button {
+            background-color: #0e056e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .answers {
+                grid-template-columns: 1fr;
+            }
+
+            .quiz-container {
+                padding: 10px;
+            }
+
+            .quiz-card {
+                padding: 10px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+
+            .submit-button button {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1 style="text-align: center; color: #130753;">Test</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% for question in questions %}
+                <div class="quiz-card">
+                    <div class="question">
+                        <div class="question-icon">?</div>
+                        <div class="question-text"><strong>{{ question.question_text }}</strong></div>
+                    </div>
+                    <div class="answers">
+                        <label class="answer">
+                            <input type="radio" name="{{ question.id }}" value="{{ question.option1 }}">
+                            <strong>{{ question.option1 }}</strong>
+                        </label>
+                        <label class="answer">
+                            <input type="radio" name="{{ question.id }}" value="{{ question.option2 }}">
+                            <strong>{{ question.option2 }}</strong>
+                        </label>
+                        <label class="answer">
+                            <input type="radio" name="{{ question.id }}" value="{{ question.option3 }}">
+                            <strong>{{ question.option3 }}</strong>
+                        </label>
+                        <label class="answer">
+                            <input type="radio" name="{{ question.id }}" value="{{ question.option4 }}">
+                            <strong>{{ question.option4 }}</strong>
+                        </label>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="submit-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
