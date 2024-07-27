@@ -23,7 +23,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'orallxannajmatdinova@gmail.com'
-EMAIL_HOST_PASSWORD = 'dwdn purq qwza hpse'
+EMAIL_HOST_PASSWORD = 'wxvl izao labu tiyh'
 
 
 
