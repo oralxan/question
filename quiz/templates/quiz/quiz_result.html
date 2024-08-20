@@ -1,18 +1,22 @@
-<!-- <!DOCTYPE html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Quiz Result</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <style>
-        body {
-            background-color: #f8f9fa;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #0d0d91;
+    <title>Document</title>
+</head>
+<style>
+    *{
+        color:white;
+    }
+    body{
+        background-image: url("/media/ab.jpg");
+        background-size: cover;
+    }
+    h1 {
+            color: #f3f3fd;
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
         h3 {
@@ -28,85 +32,18 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
+            text-align: center;
         }
         img {
             max-width: 100%;
             height: auto;
         }
-    </style>
-</head>
+</style>
 <body>
     <div class="container">
         <h1>Quiz Result</h1>
         <img src="https://teeltechcanada.com/2015/wp-content/uploads/2017/06/Python-Logo-PNG-Image.png" alt="Python Logo">
         <h3>Your score: {{ score }} out of {{ total }}</h3>
-
-        {% if passed %}
-            <h4 class="text-success">Congratulations! You passed the quiz.</h4>
-        {% else %}
-            <h4 class="text-danger">Keep trying to improve your score!</h4>
-        {% endif %}
-
-        {% if email_sent %}
-            <h4 class="text-success">Email has been sent successfully!</h4>
-        {% else %}
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-custom">Send Results</button>
-            </form>
-        {% endif %}
-
-        <h1><a href="{% url 'take_quiz' %}">Retake the Quiz</a></h1>
-    </div>
-</body>
-</html> -->
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Quiz Result</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <style>
-        body {
-            background-color: #f8f9fa;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #0d0d91;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-        h3 {
-            color: #150457;
-        }
-        .btn-custom {
-            background-color: #0d6efd;
-            color: white;
-        }
-        a {
-            color: #180576;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Quiz Result</h1>
-        <img src="https://teeltechcanada.com/2015/wp-content/uploads/2017/06/Python-Logo-PNG-Image.png" alt="Python Logo">
-        <!-- <h3>Your score: {{ score }} out of {{ total }}</h3> -->
 
         {% if passed %}
             <h4 class="text-success">Congratulations! You passed the quiz.</h4>
@@ -135,7 +72,9 @@
         {% endif %}
 
         <h1><a href="{% url 'take_quiz' %}">Retake the Quiz</a></h1>
+
     </div>
+    
 </body>
 </html>
 

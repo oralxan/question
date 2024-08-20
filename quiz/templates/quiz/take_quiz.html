@@ -10,23 +10,32 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            padding: 20px;
+            margin: 200px;
+            padding: 100px;
             background-color: #dcdcf4;
             font-family: Arial, sans-serif;
+
+        }
+
+
+
+        .text-center {
+            border-radius: 50%;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
         .quiz-container {
             width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            background-color: #dcdcf4;
+            max-width: 800px;
+            padding: 15px;
+            background-color: #f7f7f7;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .quiz-card {
-            background-color: #dcdcf4;
+            background-color: #f0f0f5;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
@@ -57,6 +66,7 @@
         .question-text {
             padding-top: 20px;
             color: white;
+            font-weight: bold;
         }
 
         .answers {
@@ -90,6 +100,12 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button button:hover {
+            background-color: #372d7b;
         }
 
         @media (max-width: 600px) {
@@ -114,8 +130,10 @@
             }
         }
     </style>
+
 </head>
 <body>
+
     <div class="quiz-container">
         <h1 style="text-align: center; color: #130753;">Test</h1>
         <form method="post">
@@ -124,30 +142,30 @@
                 <div class="quiz-card">
                     <div class="question">
                         <div class="question-icon">?</div>
-                        <div class="question-text"><strong>{{ question.question_text }}</strong></div>
+                        <div class="question-text">{{ question.question_text }}</div>
                     </div>
                     <div class="answers">
                         <label class="answer">
                             <input type="radio" name="{{ question.id }}" value="{{ question.option1 }}">
-                            <strong>{{ question.option1 }}</strong>
+                            {{ question.option1 }}
                         </label>
                         <label class="answer">
                             <input type="radio" name="{{ question.id }}" value="{{ question.option2 }}">
-                            <strong>{{ question.option2 }}</strong>
+                            {{ question.option2 }}
                         </label>
                         <label class="answer">
                             <input type="radio" name="{{ question.id }}" value="{{ question.option3 }}">
-                            <strong>{{ question.option3 }}</strong>
+                            {{ question.option3 }}
                         </label>
                         <label class="answer">
                             <input type="radio" name="{{ question.id }}" value="{{ question.option4 }}">
-                            <strong>{{ question.option4 }}</strong>
+                            {{ question.option4 }}
                         </label>
                     </div>
                 </div>
             {% endfor %}
             <div class="submit-button">
-                <button type="submit">Submit</button>
+                <button type="submit">Next</button>
             </div>
         </form>
     </div>
